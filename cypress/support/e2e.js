@@ -18,3 +18,12 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+before(() => {
+    cy.intercept({ resourceType: 'xhr' }, { log: false })
+    cy.log('Starting test suite')
+})
+
+after(() => {
+    cy.log('Ending test suite')
+})
